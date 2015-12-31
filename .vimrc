@@ -1,94 +1,90 @@
-set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 set encoding=utf-8
 set background=dark
-"Bundle 'shinzui/vim-idleFingers'
-"Bundle 'msanders/snipmate.vim'
-"Bundle 'PySmell'
-"Bundle 'vim-scripts/Pydiction'
-"set pydiction path to dictionary
-"let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-"Bundle 'ivanov/vim-ipython'
-"Bundle 'vim-scripts/indentpython.vim'
-"Bundle 'vim-scripts/python.vim'
 
-"let Vundle manage Vundle
-"required! 
-Bundle 'gmarik/vundle'
+"let Vundle manage Vundle (required!)
+Plugin 'VundleVim/Vundle.vim'
+"Disabled Plugins
+"Plugin 'shinzui/vim-idleFingers'
+"Plugin 'msanders/snipmate.vim'
 
-"Bundle 'Valloric/YouCompleteMe'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-afterimage'
-Bundle 'vim-scripts/pep8'
-Bundle 'reinh/vim-makegreen'
-Bundle 'sjl/gundo.vim'
-Bundle 'fs111/pydoc.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'less.vim'
-"Bundle 'saevarb/chronos'
-Bundle 'tpope/vim-speeddating'
-Bundle 'bling/vim-bufferline'
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/syntastic'
-Bundle 'skammer/vim-css-color'
-Bundle 'mhinz/vim-signify'
-Bundle 'kien/ctrlp.vim'
-Bundle 'chrisbra/csv.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-afterimage'
+Plugin 'vim-scripts/pep8'
+Plugin 'reinh/vim-makegreen'
+Plugin 'sjl/gundo.vim'
+"Plugin 'fs111/pydoc.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'less.vim'
+Plugin 'tpope/vim-speeddating'
+Plugin 'bling/vim-airline'
+"Plugin 'Shougo/neocomplcache'
+Plugin 'scrooloose/syntastic'
+Plugin 'skammer/vim-css-color'
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'wombat'
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#csv#enabled = 1
-let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#whitespace#symbol = '!'
-let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
-let g:airline#extensions#whitespace#max_lines = 20000
-let g:airline#extensions#whitespace#show_message = 1
-let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
-let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'luna'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 
-" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" unicode symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'majutsushi/tagbar'
-Bundle 'Raimondi/delimitMate'
-Bundle 'docunext/closetag.vim'
-Bundle 'kevinw/pyflakes-vim'
+"supertab omnicomplete options
+Plugin 'ervandew/supertab'
+set completeopt=menu,menuone,longest,preview
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = '&omnifunc'
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>", "&completefunc<c-x><c-n>"]
 
-Bundle 'thinca/vim-ft-diff_fold'
-Bundle 'vim-scripts/vcscommand.vim'
-Bundle 'vim-scripts/TaskList.vim'
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'vim-scripts/The-NERD-tree.git'
-Bundle 'chrisbra/color_highlight'
+"Plugin 'scrooloose/nerdcommenter'
+Plugin 'majutsushi/tagbar'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'Raimondi/delimitMate'
+Plugin 'docunext/closetag.vim'
+"Plugin 'kevinw/pyflakes-vim'
+
+Plugin 'thinca/vim-ft-diff_fold'
+Plugin 'vim-scripts/vcscommand.vim'
+Plugin 'vim-scripts/TaskList.vim'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'vim-scripts/The-NERD-tree.git'
+Plugin 'chrisbra/color_highlight'
 
 " enhance 256 color support for gvim themes
-Bundle 'colorsupport.vim'
-let g:colorsupport_rgb = '/etc/X11'
-Bundle 'vim-scripts/Zenburn'
-Bundle 'vim-scripts/Rainbow-Parenthesis'
-"
-"github is missing some files so fix it with:
-"svn checkout http://conque.googlecode.com/svn/trunk/autoload/conque_term 
-"in ~/.vim/bundle/Conque-Shell/autoload
-Bundle 'Conque-Shell'
-
+"Plugin 'colorsupport.vim'
+"let g:colorsupport_rgb = '/etc/X11'
+Plugin 'vim-scripts/Zenburn'
+Plugin 'vim-scripts/Rainbow-Parenthesis'
 
 syntax on
 "remap leader from \ to ,
@@ -96,18 +92,15 @@ let mapleader = ","
 set title "update title of command prompt
 
 "don't beep
-set visualbell
-set noerrorbells
+set visualbell noerrorbells
 
 set fileformats=unix,dos,mac
 
 "add more levels of undo tracking
 set history=1000
 set undolevels=1000
-if exists("+undofile")
-   set udf
-   set undodir=~/.vim/undo
-endif
+set udf
+set undodir=~/.vim/undo
 
 "ignore the following filetypes from wildmenu completion
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so,*.dylib
@@ -115,19 +108,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so,*.dylib
 "sane console: xterm, 256 color support
 behave xterm
 
-if &term =~ "screen-256color" || has("gui")
-   set t_Co=256
-   colors zenburn
-else
-   colors desert
-endif
-"set t_AB=^[[48;5;%dm
-"set t_AF=^[[38;5;%dm
-
-if has('gui_macvim')
-  nnoremap <silent> <SwipeLeft> :macaction _cycleWindowsBackwards:<CR>
-  nnoremap <silent> <SwipeRight> :macaction _cycleWindows:<CR>
-endif
+colors zenburn
 
 iab teh the
 iab Teh The
@@ -138,10 +119,8 @@ iab Teh The
 
 "make backspace work reliably
 set backspace=indent,eol,start
-set ttyfast
 set lazyredraw
 "hide --INSERT-- and other modes from being displayed
-"since we're using powerline
 set noshowmode
 set sidescroll=2
 set scrolloff=8
@@ -164,6 +143,9 @@ set list
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
+"transparent background
+highlight Normal ctermbg=None
+
 "highlight trailing whitespace
 highlight WhitespaceEOL ctermbg=Red guibg=Red
 match WhitespaceEOL /\s\+$\| \+\ze\t/
@@ -180,14 +162,10 @@ set list listchars=tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«
 "use spaces instead of tabs
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+set expandtab smarttab
 "set writeany autowrite
-set smarttab
 "incremental, highlighted search, showing matches
-set incsearch
-set hlsearch
-set showmatch
-"set nohls "don't higlight search
+set incsearch hlsearch showmatch
 "manage multiple buffers
 set hidden
 "stifle some prompts
@@ -212,8 +190,7 @@ set showbreak=>>
 "Make preview (and all other) splits appear at the bottom
 set splitbelow
 
-set ignorecase
-set smartcase
+set ignorecase smartcase
 
 set wildmenu        "autocomplete menu
 "set statusline=%<\ %n:%f\ %m%r%y%=%(%l,%c%V\ \ \ \ \ \ \ \ \ %P:%L%)
@@ -253,41 +230,33 @@ endfunction
 command Wx execute Chmodfile(0)
 command WX execute Chmodfile(1)
 
-if has('autocmd')
-   au filetype python set expandtab
-   "au filetype html,xml set listchars-=tab:>.
+au filetype python set expandtab
+"au filetype html,xml set listchars-=tab:>.
 
-   au BufNewFile,BufRead *.todo setf todo
-   au BufNewFile,BufRead *.out setf todo
-   au BufNewFile,BufRead *.psl setf pslang
-   au BufNewFile,BufRead *.pslog setf pslog
-   au BufNewFile,BufRead *.kvg setf kvg 
-   au BufNewFile,BufRead /tmp/user/[0-9]*/textui.[0-9]* setf ticket
-   au BufNewFile,BufRead CHANGELOG setf ticket
-   au BufNewFile,BufRead CHANGELOG.* setf ticket
+au BufNewFile,BufRead *.todo setf todo
+au BufNewFile,BufRead *.out setf todo
+au BufNewFile,BufRead *.psl setf pslang
+au BufNewFile,BufRead *.pslog setf pslog
+au BufNewFile,BufRead *.kvg setf kvg 
+au BufNewFile,BufRead /tmp/user/[0-9]*/textui.[0-9]* setf ticket
+au BufNewFile,BufRead CHANGELOG setf ticket
+au BufNewFile,BufRead CHANGELOG.* setf ticket
 
-   "enable omnicomplete for python
-   au FileType python set omnifunc=pythoncomplete#Complete
+"enable rainbow parenthesis
+au Syntax * source ~/.vim/bundle/Rainbow-Parenthesis/syntax/RainbowParenthsis.vim
 
-   "enable rainbow parenthesis
-   au Syntax * source ~/.vim/bundle/Rainbow-Parenthesis/syntax/RainbowParenthsis.vim
-
-   "put cursor at last position when opening file
-   au BufReadPost *
-   \ if line("'\"") > 0 && line("'\"") <= line("$") |
-   \   exe "normal! g`\""|
-   \ endif
-
-endif
+"put cursor at last position when opening file
+au BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal! g`\""|
+\ endif
 
 set pastetoggle=<F2>
 
-if version >= 703
-   "number lines relative to current position, requires vim 7.3
-   set relativenumber
-   nnoremap <F3> <Esc>:set norelativenumber!<CR>:set nopaste!<CR>:set foldcolumn=0<CR>
-   imap <F3> <Esc>:set norelativenumber!<CR>:set nopaste!<CR>:set foldcolumn=0<CR>
-endif
+"number lines relative to current position
+set relativenumber
+nnoremap <F3> <Esc>:set norelativenumber!<CR>:set nopaste!<CR>:set foldcolumn=0<CR>
+imap <F3> <Esc>:set norelativenumber!<CR>:set nopaste!<CR>:set foldcolumn=0<CR>
 
 "don't require shift for command entry
 nnoremap ; :
@@ -342,13 +311,13 @@ map <leader>T :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▾', '▸']
 
 if has("gui_running")
-   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 11
-   set guioptions=
-   "set guifont=Monaco\ for\ Powerline\ 14
+   set guifont=Monaco\ for\ Powerline\ 14
    "set guifont=Inconsolata\ 14
    if has("mac")
       "grow to max horiz width on fullscreen mode on MacVIM
       set fuopt+=maxhorz
+      nnoremap <silent> <SwipeLeft> :macaction _cycleWindowsBackwards:<CR>
+      nnoremap <silent> <SwipeRight> :macaction _cycleWindows:<CR>
    endif
    "Hide icons
    set go-=T
@@ -388,11 +357,6 @@ nmap <leader>a <Esc>:Ack!
 "map q;; q:<CR>
 "map q; :q
 "map q: :q
-"
-"enable 256 colour mode in Conque Shell and set the terminal type
-let g:ConqueTerm_Color = 2
-let g:ConqueTerm_SendFunctionKeys = 1
-let g:ConqueTerm_TERM = 'xterm'
 
 if &diff
 "easily handle diffing using < and > keys
@@ -432,7 +396,6 @@ let python_highlight_all = 1
 "set cmdheight=2
 set cmdheight=1
 
-
 autocmd InsertLeave * highlight CursorLine guibg=#4f4f4f
 autocmd InsertEnter * highlight CursorLine guibg=#5f5f5f
 " CursorLine guibg=#4f4f4f
@@ -444,10 +407,6 @@ autocmd FileType conque_term match none
 
 " window titles
 set title
-if &term == 'screen-bce' || &term == 'rxvt-unicode'
-   set t_ts=k
-   set t_fs=\
-endif
 
 if $STY
    set titlestring=%t\ %m
@@ -465,10 +424,9 @@ nnoremap <F1> <Esc>
 noremap <F1> <Esc>
 
 "only show red bar in column 80 in insert mode
-if exists('+colorcolumn')
-    autocmd InsertEnter * set colorcolumn=80
-    autocmd InsertLeave * set colorcolumn=""
-endif
+autocmd InsertEnter * set colorcolumn=80
+autocmd InsertLeave * set colorcolumn=""
+
 "ignore wrapping lines when moving
 noremap j gj
 noremap k gk
