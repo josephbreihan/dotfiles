@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'shinzui/vim-idleFingers'
 "Plugin 'msanders/snipmate.vim'
 
+Plugin 'vim-scripts/openscad.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-markdown'
@@ -25,7 +26,9 @@ Plugin 'sjl/gundo.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'less.vim'
 Plugin 'tpope/vim-speeddating'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
 "Plugin 'Shougo/neocomplcache'
 Plugin 'scrooloose/syntastic'
 Plugin 'skammer/vim-css-color'
@@ -35,27 +38,29 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'luna'
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline_theme = 'zenburn'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
 " unicode symbols
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.crypt = '🔒'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+let g:tmuxline_theme='zenburn'
 
 "supertab omnicomplete options
 Plugin 'ervandew/supertab'
@@ -232,15 +237,6 @@ command WX execute Chmodfile(1)
 
 au filetype python set expandtab
 "au filetype html,xml set listchars-=tab:>.
-
-au BufNewFile,BufRead *.todo setf todo
-au BufNewFile,BufRead *.out setf todo
-au BufNewFile,BufRead *.psl setf pslang
-au BufNewFile,BufRead *.pslog setf pslog
-au BufNewFile,BufRead *.kvg setf kvg 
-au BufNewFile,BufRead /tmp/user/[0-9]*/textui.[0-9]* setf ticket
-au BufNewFile,BufRead CHANGELOG setf ticket
-au BufNewFile,BufRead CHANGELOG.* setf ticket
 
 "enable rainbow parenthesis
 au Syntax * source ~/.vim/bundle/Rainbow-Parenthesis/syntax/RainbowParenthsis.vim
@@ -435,8 +431,8 @@ noremap k gk
 inoremap <C-e> <C-o><C-e>
 inoremap <C-y> <C-o><C-y>
 
-runtime ftplugin/man.vim
-nmap K :Man <cword><CR>
+"runtime ftplugin/man.vim
+"nmap K :Man <cword><CR>
 
 "fix problems with the vertical bar not showing
 "when using different fonts
