@@ -21,8 +21,8 @@ xterm*eightBitInput:   true
 xterm*metaSendsEscape: true
 !xterm*font:        -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
 !xterm*boldFont:    -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-iso8859-2
-XTerm*vt100.faceName: Monaco for Powerline:spacing=mono:scalable=true:autohint=true:antialias=true
-XTerm*vt100.faceSize: 10
+XTerm*vt100.faceName: Inconsolata for Powerline:spacing=mono:scalable=true:autohint=true:antialias=true
+XTerm*vt100.faceSize: 14
 XTerm*allowFontOps: false
 
 *custtomization: -color

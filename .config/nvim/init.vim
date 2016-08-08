@@ -133,8 +133,8 @@ set sidescrolloff=15
 set laststatus=2
 "don't jump to first character when paging
 set nostartofline
-"mouse copy and paste
-"set mouse=a
+"disable mouse
+set mouse-=a
 
 "highlight current line and column
 set cuc cul 
